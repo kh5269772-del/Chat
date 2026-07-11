@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<script>
+    let tok = JSON.parse(localStorage.getItem("jwt"))
+    // if(tok){
+    //     window.location.href = 'users.html'
+    // }
+</script>
+
+<body class="body">
+
+    <div class="formData"  >
+        <div class="title">
+            <h2>chat app</h2>
+        </div>
+        <div class="messageS">
+            <h2>the is an error mesage</h2>
+        </div>
+        <form action="" id="register">
+            <div class="column2">
+                <div class="columne">
+                    <label for="firstName">first name</label>
+                    <input type="text" id="firstName" placeholder="first Name" name="ferstName">
+                </div>
+                <div class="columne">
+                    <label for="lastName">last name</label>
+                    <input type="text" id="lastName" placeholder="last Name" name="lastName">
+                </div>
+            </div>
+
+            <label for="email">email</label>
+            <input type="email" id="email" placeholder="email" name="email">
+
+            <label for="password">password</label>
+            <input type="password" id="password" placeholder="password" name="password">
+            <i class="fas fa-eye-slash"  id="iEyeslash"></i>
+
+            <label for="image" class="btimg">image</label>
+       
+             <input type="file"  id="image" placeholder="image" name="image" >
+        
+
+            <button type="submit" id="butt">create</button>
+        </form>
+
+        <div class="linkLogin"><h3>Already signed up? <a href="./login.html">login now</a></h3></div>
+
+
+
+
+    </div>
+
+
+<!-- From Uiverse.io by jeremy_4982 --> 
+<div class="Strich1">
+  <div class="Strich2">
+    <div class="bubble"></div>
+    <div class="bubble1"></div>
+    <div class="bubble2"></div>
+    <div class="bubble3"></div>
+    <div class="bubble4"></div>
+  </div>
+</div>
+
+<script> 
+    let formData = document.querySelector(".formData")
+     let Strich1 = document.querySelector(".Strich1")
+     formData.style.display = 'none'
+     setTimeout(()=>{
+           formData.style.display = 'block'
+        Strich1.style.display = 'none'
+     },3000)
+    
+  
+</script>
+
+<!-- kh5269fdh772@gmail.com -->
+ <!-- 12345HHkk% -->
+
+
+<script src="./index.js"></script>
+
+</body>
+
+</html>

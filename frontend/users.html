@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<script>
+    let token = JSON.parse(localStorage.getItem("jwt"))
+    if(!token){
+        alert("You are not allowed to enter")
+        window.location.href = 'index.html'
+    }
+</script>
+
+<body class="body">
+
+    <div class="container" style="display: none;">
+<div class="topcont">
+            <div class="myaccount">
+            <div class="name_img_my">
+                <div class="inmg">
+                    <img src=""  alt="" id="image_my">
+                </div>
+                <div class="data_my">
+                    <span id="name_my"></span>
+                    <p id="email_my">active now</p>
+                </div>
+            </div>
+            <a href="#" id="logout_my">logout</a>
+        </div>
+        <div class="search">
+            <input type="text" placeholder="search" id="search">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+
+</div>
+      <div class="total_lest">
+         <a href="./chatAi.html" class="link_you">
+                <div class="content">
+                    <div class="user_mane_img">
+                        <img src="./image/Meta_AI_logo.png" alt="">
+                        <div class="data_you">
+                            <div class="data_my">
+                                <span>Open</span>
+                                <p>ِAI</p>
+                            </div>
+                        </div>
+                    </div>
+                    <i  id="online" class="fas fa-circle"></i>
+                </div>
+            </a>
+       
+          <div class="users_list">
+           
+
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="boxsj">
+        <div class="boxs"></div>
+    </div>
+
+  
+
+ 
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="./users.js"></script> 
+ 
+    <!-- <script src="./userslest.js"></script> -->
+</body>
+
+</html>

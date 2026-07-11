@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+
+
+<body class="body">
+
+    <div class="chatuser">
+        <div class="titleDataTop">
+            <a href="./users.html"><i class="fas fa-arrow-left"></i></a>
+            <img id="avatar_img" src="" alt="">
+            <div class="data_you">
+                <div class="data_my">
+                    <span id="name_us"></span>
+                    <p>active now</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="chatBody">
+           <div class="tosection">
+             <section class="myMessage" style="display: none;"></section>
+            <section class="youMessage" style="display: none;">
+                <img id="eye_img" src=""  alt="">
+                <section class="message_Y"></section>
+           
+               
+            </section>
+           </div>
+        </div>
+
+        <div class="sendMessage">
+            <i class="fas fa-smile" onclick="emojis()" style="font-size: 22px; cursor: pointer;"></i>
+            <label for="input_img" style="font-size: 23px; cursor: pointer; padding: 2px;"><i class="fas fa-image"></i></label>
+            <input type="file" id="input_img" style="display: none;">
+            <input type="text" id="input_text" placeholder="send message">
+            <button id="send"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+        <div class="connectEmoji" ></div>
+    </div>
+
+
+<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/browser.js"></script>
+<script src="./chat.js"></script>
+
+
+</body>
+
+</html>
