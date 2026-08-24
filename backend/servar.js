@@ -31,7 +31,7 @@ const NAME = process.env.NAME
 const PASSWORD = process.env.PASSWORD
 const DATABASE = process.env.DATABASE
 const CHARSET = process.env.CHARSET
-const DATABASECHAT = process.env.DATABASECHAT
+
 
 const db = mysql.createConnection({
     host: HOST,
@@ -288,21 +288,6 @@ app.post("/chat-ai", async (req, res) => {
 
 
 
-const dbm = mysql.createConnection({
-    host: HOST,
-    user: NAME,
-    password: PASSWORD,
-    database: DATABASECHAT,
-    charset: CHARSET
-})
-
-dbm.connect((error) => {
-    if (error) {
-        console.log(error)
-    } else {
-        console.log("mysql message connect...")
-    }
-})
 
 
 
@@ -332,7 +317,7 @@ app.post("/chat-users", upmessage.single("messagefile"), (req, res) => {
     const receiver_id =req.body.idu
     const file = req.file ? "http://localhost:3000/" + req.file.filename : null
 
-    dbm.query("INSERT INTO messages SET ?", {
+    db.query("INSERT INTO messages SET ?", {
         sender_id: sender_id,
         receiver_id: receiver_id,
         message: message,
@@ -376,13 +361,13 @@ app.get("/avatar-user", (req, res) => {
         }
 
 
-        dbm.query("UPDATE messages SET is_read = 1 WHERE sender_id =? AND receiver_id =?",[idu,idm],(error,senser)=>{
+        db.query("UPDATE messages SET is_read = 1 WHERE sender_id =? AND receiver_id =?",[idu,idm],(error,senser)=>{
             if(error){
                 return console.log(error)
             }
             
 
-        dbm.query("SELECT * FROM messages WHERE (sender_id=? AND receiver_id=?) OR (sender_id=? AND receiver_id=? ) ORDER BY ID ASC", [idm, idu, idu, idm], (error, results) => {
+        db.query("SELECT * FROM messages WHERE (sender_id=? AND receiver_id=?) OR (sender_id=? AND receiver_id=? ) ORDER BY ID ASC", [idm, idu, idu, idm], (error, results) => {
             if (error) {
                     console.log(error)
                 return es.json({ error: error })
@@ -403,7 +388,7 @@ app.get("/avatar-user", (req, res) => {
 
 app.get("/chat-unread-count",(req,res)=>{
     const receiver_id = req.query.id;
-    dbm.query("SELECT sender_id, COUNT(*) AS unread_count FROM messages WHERE receiver_id =? AND is_read = 0 GROUP BY sender_id",[receiver_id],(error,results)=>{
+    db.query("SELECT sender_id, COUNT(*) AS unread_count FROM messages WHERE receiver_id =? AND is_read = 0 GROUP BY sender_id",[receiver_id],(error,results)=>{
         if(error){
             return console.log(error)
         }
